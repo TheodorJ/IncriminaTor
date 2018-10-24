@@ -2,7 +2,7 @@ language: python
     python:
       - "3.7"
     env: # => 4
-      -DJANGO=2.1.1
+      -DJANGO=2.1.2
     install: # => 5
       - pip install -r incriminator/requirements.txt
     script: # => 7
