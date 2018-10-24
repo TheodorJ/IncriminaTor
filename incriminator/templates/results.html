@@ -13,17 +13,18 @@
     <div class="results-table">
       <table>
         <tr>
-          <td>
+          <td align="center">
             {% if isTorNode %}
-              There is a Tor node at this IP and date!
+              Tor node found!
             {% else %}
               There are no Tor nodes at this IP and date.
             {% endif %}
           </td>
-          <td>
+          <td align="center">
             {% if apilityBlacklist %}
-              This IP has been blacklisted. Blacklist info:
-
+              This IP has been blacklisted.<br>
+              Blacklist info (raw JSON):
+              <br>
               {{ apilityBlacklist }}
             {% else %}
               This IP has not been blacklisted.
@@ -33,12 +34,19 @@
       </table>
     </div>
 
-    {% if apilityGeoInfo %}
-    Geolocation info:
+    <div align="center">
+      <div class="geo-info" align="center">
+        {% if apilityGeoInfo %}
+        Geolocation info:<br>
 
-    {{ apilityGeoInfo }}
+        Country: {{ agi_country }}<br>
+        Continent: {{ agi_continent }}<br>
+        Latitude: {{ agi_latitude }}<br>
+        Longitude: {{ agi_longitude }}<br>
 
-    {% endif %}
+        {% endif %}
+      </div>
+    </div>
 
 
     <script src="https://unpkg.com/vue"></script>
