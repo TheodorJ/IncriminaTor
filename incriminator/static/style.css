@@ -11,8 +11,7 @@
   padding: 5px;
 }
 
-.field-form .text-input {
-  width: 100%;
+.field-form .text-input input {
   border: 0px;
   font-family: "Courier New", Courier, monospace;
   font-size: 18px;
@@ -61,7 +60,7 @@
 
 .geo-info {
   padding: 5px;
-  width: 100%;
+  width: 99%;
   font-family: "Courier New", Courier, monospace;
   font-size: 18px;
   background-color: black;

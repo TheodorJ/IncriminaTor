@@ -28,10 +28,23 @@ def render_results(request, ip, date):
     apilityBlacklist = ipIsInBlacklist(ip)
     if(not apilityBlacklist[0]): apilityBlacklist = None
     apilityGeoInfo = ipGeoLocation(ip)
-    #apilityGeoInfo = None
+    if(apilityGeoInfo):
+        agi_country = apilityGeoInfo["country"]
+        agi_continent = apilityGeoInfo["continent"]
+        agi_latitude = apilityGeoInfo["latitude"]
+        agi_longitude = apilityGeoInfo["longitude"]
+    else:
+        agi_country = None
+        agi_continent = None
+        agi_latitude = None
+        agi_longitude = None
 
     context = {'isTorNode': isTorNode,
-               'apilityBlacklist': apilityBlacklist,
-               'apilityGeoInfo': apilityGeoInfo}
+               'apilityBlacklist': apilityBlacklist[1],
+               'apilityGeoInfo': apilityGeoInfo,
+               'agi_country': agi_country,
+               'agi_continent': agi_continent,
+               'agi_latitude': agi_latitude,
+               'agi_longitude': agi_longitude}
 
     return render(request, "results.html", context)
