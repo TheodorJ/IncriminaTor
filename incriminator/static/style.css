@@ -25,6 +25,7 @@
 }
 
 .go-btn {
+  text-decoration: none;
   transition: 0.5s;
   font-family: "Courier New", Courier, monospace;
   font-size: 24px;
@@ -59,6 +60,7 @@
 }
 
 .geo-info {
+  padding: 5px;
   width: 100%;
   font-family: "Courier New", Courier, monospace;
   font-size: 18px;
