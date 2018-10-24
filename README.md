@@ -29,7 +29,33 @@ Technologies:
 
 I was planning on using VueJS to implement this project, but I realized upon trying to send GET requests that Javascript is not the best language for server-side interactions, and that all of my API calls would simpler and less hacky if moved to the service layer. Aside from that, I could not find any benefits that VueJS would provide to the service due to its simplicity, so I cut it. Please tell me if there are benefits that I overlooked, because I would love to hear about them.
 
-How to set it up:
+File structure:
+```
+incriminator
+ |- incriminator/
+     |- __init__.py
+     |- apility.py
+     |- exonerator.py
+     |- forms.py
+     |- settings.py
+     |- urls.py
+     |- views.py
+     `- wsgi.py
+ |- static/
+     `- style.css
+ |- templates/
+     |- index.html
+     `- results.html
+ |- apility-api-key.txt.template
+ |- manage.py
+ |- requirements.txt
+ |- testBasic.py
+ `- testPOST.py
+README.md
+.travis.yml
+```
+
+How to set up IncriminaTor:
  1. Clone the repo: `git clone https://github.com/TheodorJ/IncriminaTor`
  2. Acquire an API key from [apility.io](apility.io). You will need this for IP blacklist and GeoLocation lookups
  3. cp `apility-api-key.txt.template` to `apility-api-key.txt`, and copy your API key into it
