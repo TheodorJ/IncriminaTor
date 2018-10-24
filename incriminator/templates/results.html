@@ -1,0 +1,47 @@
+{% load static %}
+
+<html>
+  <link rel="stylesheet" href="{% static "style.css" %}">
+  <body>
+    <div id="app">
+      <br><br><br><br><br>
+      <div class="big-text" align="center">I n c r i m i n a T o r</div>
+
+      <br><br>
+    </div>
+
+    <div class="results-table">
+      <table>
+        <tr>
+          <td>
+            {% if isTorNode %}
+              There is a Tor node at this IP and date!
+            {% else %}
+              There are no Tor nodes at this IP and date.
+            {% endif %}
+          </td>
+          <td>
+            {% if apilityBlacklist %}
+              This IP has been blacklisted. Blacklist info:
+
+              {{ apilityBlacklist }}
+            {% else %}
+              This IP has not been blacklisted.
+            {% endif %}
+          </td>
+        </tr>
+      </table>
+    </div>
+
+    {% if apilityGeoInfo %}
+    Geolocation info:
+
+    {{ apilityGeoInfo }}
+
+    {% endif %}
+
+
+    <script src="https://unpkg.com/vue"></script>
+    <script src="index.js"></script>
+  </body>
+</html>
