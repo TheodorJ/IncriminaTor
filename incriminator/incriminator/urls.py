@@ -21,5 +21,6 @@ from . import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    url(r'^$', views.render_index)
+    url(r'^$', views.render_index),
+    path('<str:ip>/<str:date>/', views.render_results),
 ]
