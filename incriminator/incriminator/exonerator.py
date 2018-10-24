@@ -10,6 +10,11 @@ def urlIsTorNode(url):
     else:
         return False
 
+def ipDateIsTorNode(ip, date):
+    url = "https://metrics.torproject.org/exonerator.html?ip=" + ip + "&timestamp=" + date + "&lang=en"
+
+    return urlIsTorNode(url)
+
 if __name__ == "__main__":
     print(HTTPGET("https://metrics.torproject.org/exonerator.html?ip=86.59.21.38&timestamp=2018-04-23&lang=en"))
 

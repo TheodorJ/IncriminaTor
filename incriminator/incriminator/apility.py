@@ -2,7 +2,7 @@
 ## apility.py -- Interfacing with the Apility.io API
 ##
 
-from exonerator import HTTPGET
+from .exonerator import HTTPGET
 import requests, json
 
 def sendRequestWithAuthToken(url):
@@ -25,12 +25,15 @@ def ipGeoLocation(ip):
     apiResponseJSON = json.loads(apiResponse.text)
 
     distilledGeoInfo = {}
-    distilledGeoInfo["country"] = apiResponseJSON["ip"]["country_names"]["en"]
-    distilledGeoInfo["continent"] = apiResponseJSON["ip"]["continent_names"]["en"]
-    distilledGeoInfo["latitude"] = apiResponseJSON["ip"]["latitude"]
-    distilledGeoInfo["longitude"] = apiResponseJSON["ip"]["longitude"]
+    try:
+        distilledGeoInfo["country"] = apiResponseJSON["ip"]["country_names"]["en"]
+        distilledGeoInfo["continent"] = apiResponseJSON["ip"]["continent_names"]["en"]
+        distilledGeoInfo["latitude"] = apiResponseJSON["ip"]["latitude"]
+        distilledGeoInfo["longitude"] = apiResponseJSON["ip"]["longitude"]
 
-    print(distilledGeoInfo)
+        return distilledGeoInfo
+    except:
+        return None
 
 if __name__=="__main__":
     ipIsInBlacklist("86.59.21.38")
