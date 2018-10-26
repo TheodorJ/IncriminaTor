@@ -39,8 +39,13 @@ def render_results(request, ip, date):
         agi_latitude = None
         agi_longitude = None
 
+    if(apilityBlacklist == None):
+        inter = None
+    else:
+        inter = apilityBlacklist[1]
+
     context = {'isTorNode': isTorNode,
-               'apilityBlacklist': apilityBlacklist[1],
+               'apilityBlacklist': inter,
                'apilityGeoInfo': apilityGeoInfo,
                'agi_country': agi_country,
                'agi_continent': agi_continent,
